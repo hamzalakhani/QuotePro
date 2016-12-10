@@ -11,8 +11,10 @@ import UIKit
 class TableViewCell: UITableViewCell {
     // MARK:  Properties
     
-    @IBOutlet weak var quoteAuthor: UILabel!
-    @IBOutlet weak var quoteText: UILabel!
+    @IBOutlet weak var cellImage: UIImageView!
+    @IBOutlet weak var authorCell: UILabel!
+    @IBOutlet weak var quoteCell: UILabel!
+
     
     
     override func awakeFromNib() {
@@ -25,5 +27,8 @@ class TableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+
+   
+    
 
 }

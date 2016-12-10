@@ -8,9 +8,7 @@
 
 import UIKit
 protocol AddItemDelegate {
-    func didSave()
-    
-    
+    func didSave(quote:Quotes)
 }
 
 class ViewController: UIViewController {
@@ -22,8 +20,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var newQuote: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var newImage: UIButton!
+    
     var randomImage : UIImage?
-    AddIte
+    
+    var addItemDelegate: AddItemDelegate?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let url = URL(string: "http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json")
@@ -118,6 +120,14 @@ class ViewController: UIViewController {
     @IBAction func newImage(_ sender: Any) {
         callImages()
     }
+    
+    @IBAction func saveContent(_ sender: Any) {
+        let quotes = Quotes(quoteText: quoteRandom.text!, quoteAuthor: quoteAuthor.text!, randomImage: imageRandom.image!)
+        self.addItemDelegate?.didSave(quote:quotes)
+        self.navigationController?.popViewController(animated: true)
+
+    }
+    
 
     /*
     // MARK: - Navigation

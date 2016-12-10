@@ -12,10 +12,13 @@ class Quotes{
     // MARK: Properties
     let quoteText : String
     let quoteAuthor : String
-    
-    init(quoteText: String, quoteAuthor: String){
+    var randomImage : UIImage?
+
+    init(quoteText: String, quoteAuthor: String,randomImage : UIImage
+ )
+{
        self.quoteText = quoteText
        self.quoteAuthor = quoteAuthor
-        
+    self.randomImage = randomImage
     }
 }
